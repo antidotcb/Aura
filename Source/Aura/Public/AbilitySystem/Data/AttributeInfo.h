@@ -30,7 +30,8 @@ class AURA_API UAttributeInfo : public UDataAsset
 	GENERATED_BODY()
 
 public:
-	FAuraAttributeInfo GetAttributeInfo(const FGameplayTag& AttributeTag, bool bLogNotFound) const;
+	FAuraAttributeInfo GetAttributeInfo(const FGameplayTag& AttributeTag, float Value = 0.0f,
+	                                    bool bLogNotFound = false) const;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TArray<FAuraAttributeInfo> AttributesInformation;

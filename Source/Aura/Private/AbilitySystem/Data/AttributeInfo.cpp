@@ -3,13 +3,16 @@
 
 #include "AbilitySystem/Data/AttributeInfo.h"
 
-FAuraAttributeInfo UAttributeInfo::GetAttributeInfo(const FGameplayTag& AttributeTag, bool bLogNotFound) const
+FAuraAttributeInfo UAttributeInfo::GetAttributeInfo(const FGameplayTag& AttributeTag, const float Value,
+                                                    const bool bLogNotFound) const
 {
 	for (const auto& AttributeInfo : AttributesInformation)
 	{
 		if (AttributeInfo.AttributeTag.MatchesTagExact(AttributeTag))
 		{
-			return AttributeInfo;
+			FAuraAttributeInfo Result = AttributeInfo;
+			Result.AttributeValue = Value;
+			return Result;
 		}
 	}
 
